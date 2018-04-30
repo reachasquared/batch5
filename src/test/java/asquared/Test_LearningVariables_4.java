@@ -4,8 +4,12 @@ import org.junit.Test;
 
 public class Test_LearningVariables_4 {
     //Class level variables
-    String weekDay = "Sunday";
-    boolean status = true;
+
+    //this variable is declared public. this can be accessed by other classes
+    public String weekDay = "Sunday";
+
+    //this variable is declared private. this is not visible for other classes
+    private boolean status = true;
 
     public void variableExamples() {
         //Variables allow the Java program to store values during the runtime of the program.
