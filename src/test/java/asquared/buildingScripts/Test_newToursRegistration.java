@@ -1,12 +1,14 @@
 package asquared.buildingScripts;
 
 import core.baseClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class Test_newToursRegistration extends baseClass {
+    @Test
     public void newToursRegistration() {
         // Go to http://newtours.demoaut.com/
         logger.info("Opening webpage : " + baseUrl);
@@ -26,9 +28,9 @@ public class Test_newToursRegistration extends baseClass {
 
         assertTrue(
                 driver
-                .findElement(
-                        By.xpath("//a[@href='mercuryregister.php']")
-                ).isDisplayed()
+                        .findElement(
+                                By.xpath("//a[@href='mercuryregister.php']")
+                        ).isDisplayed()
         );
         //driver.findElement(By.linkText("REGISTER")).click();
         driver.findElement(By.xpath("//a[@href='mercuryregister.php']"))

@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.fail;
@@ -19,14 +20,17 @@ public class baseClass {
     public Logger logger = LogManager.getLogger("myLog");
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
+        // inform where is geckodriver exec
+        System.setProperty("webdriver.gecko.driver", "src" + File.separator + "main" + File.separator + "resources" + File.separator + "geckodriver.exe");
+
         driver = new FirefoxDriver();
         baseUrl = "http://newtours.demoaut.com/";
         driver.manage().timeouts()
                 .implicitlyWait(30, TimeUnit.SECONDS);
     }
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
